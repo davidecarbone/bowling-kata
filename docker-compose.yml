@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  bowling:
+    build:
+      context: .
+      dockerfile: .docker/Dockerfile
+    image: bowling:latest
+    ports:
+      - '8080:80'
+    hostname: bowling
+    restart: on-failure
+    volumes:
+      - .:/var/www/html
+      - vendor:/var/www/html/vendor
+volumes:
+  vendor:
